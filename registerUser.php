@@ -9,7 +9,7 @@ require "db.php";
   $username    = ucwords(strotolower($_POST['username'] ?? ''));
   $password    = ucwords(strotolower($_POST['password'] ?? ''));
   $confirm     = ucwords(strotolower($_POST['confirm_password'] ?? ''));
-  $role_id     = ucwords(strotolower($_POST['role_id'] ?? ''));
+  $UserType    = ucwords(strotolower($_POST['usertype'] ?? ''));
   $gender_id   = ucwords(strotolower($_POST['gender_id'] ?? ''));
   
 // 🔐 Enforce password complexity
@@ -31,21 +31,21 @@ if ($password !== $confirmPass) {
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
 //  Insert user into DB
-$stmt = $conn->prepare("INSERT INTO users (full_name, email, phone, username, password, gender_id, role_Id) VALUES (?, ?, ?, ?, ?, ?, ?)");
-$stmt->execute([$fullName, $email, $phone, $username, $hashedPassword, $genderId, $roleId]);
+$stmt = $conn->prepare("INSERT INTO users (full_name, email, phone, username, password, gender_id, UserType_Id) VALUES (?, ?, ?, ?, ?, ?, ?)");
+$stmt->execute([$fullName, $email, $phone, $username, $hashedPassword, $genderId, $UserTypeId]);
 
-//  Fetch the new user and their role name
+//  Fetch the new user and their UserType name
 $userId = $conn->lastInsertId();
-$stmt = $conn->prepare("SELECT r.role FROM users u JOIN roles r ON u.role_id = r.roleId WHERE u.id = ?");
+$stmt = $conn->prepare("SELECT r.UserType FROM users u JOIN UserTypes r ON u.UserType_id = r.UserTypeId WHERE u.id = ?");
 $stmt->execute([$userId]);
-$role = $stmt->fetchColumn();
+$UserType = $stmt->fetchColumn();
 
 //  Set session
 $_SESSION['user_id']    = $userId;
 $_SESSION['user_email'] = $email;
-$_SESSION['user_role']  = $role;
+$_SESSION['user_type']  = $UserType;
 
-//  Redirect based on role
+//  Redirect based on UserType
 header("Location: Dashboard.php");
 exit;
 ?>
