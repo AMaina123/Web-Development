@@ -1,26 +1,23 @@
 <?php
-require "db.php";
+require "webdevdb.php";
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // --- Capture form inputs. ucwords auto uppercases the first string character, strtolower makes a string lowercase ---
-  $full_name   = ucwords(strtolower($_POST['full_name']?? ''));
-  $email       = ucwords(strtolower($_POST['email'] ?? ''));
-  $phone       = ucwords(strotolower($_POST['phone'] ?? ''));
+  $full_name = ucwords(strtolower($_POST['full_name']?? ''));
+  $email = ucwords(strtolower($_POST['email'] ?? ''));
+  $phone = ucwords(strotolower($_POST['phone'] ?? ''));
   $username    = ucwords(strotolower($_POST['username'] ?? ''));
-  $password    = ucwords(strotolower($_POST['password'] ?? ''));
-  $confirm     = ucwords(strotolower($_POST['confirm_password'] ?? ''));
-  $role_id     = ucwords(strotolower($_POST['role_id'] ?? ''));
-  $gender_id   = ucwords(strotolower($_POST['gender_id'] ?? ''));
-  $certificate = ucwords(strotolower($_POST['certificate'] ?? ''));
-  $expertise   = ucwords(strotolower($_POST['expertise'] ?? ''));
-  $location    = ucwords(strotolower($_POST['location'] ?? ''));
-  $message     = '';
+  $password = ucwords(strotolower($_POST['password'] ?? ''));
+  $confirm = ucwords(strotolower($_POST['confirm_password'] ?? ''));
+  $image = ucwords(strotolower($_POST['image'] ?? ''));
+  $address = ucwords(strotolower($_POST['address'] ?? ''));
+  $message = '';
 
   // --- Validations ---
   if (
     empty($full_name) || empty($email) || empty($phone) || empty($username) ||
-    empty($password) || empty($confirm) || empty($role_id) || empty($gender_id)
+    empty($password) || empty($confirm) || empty($image) || empty($address)
   ) {
     $message = "Please fill in all fields.";
   } elseif ($password !== $confirm) {
@@ -54,15 +51,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   // --- Fetch role name (only if not blocked yet) ---
   if (empty($message)) {
-    $role_sql = $conn->prepare("SELECT role FROM roles WHERE roleId = ?");
-    $role_sql->bind_param("s", $role_id);
-    $role_sql->execute();
+    $UserType = $conn->prepare("SELECT role FROM users WHERE UserType = ?");
+    $UserType->bind_param("s", $role_id);
+    $UserType->execute();
     $role_result = $role_sql->get_result();
     $role_row = $role_result->fetch_assoc();
     $role_name = $role_row['role'] ?? '';
     $role_sql->close();
 
-    if ($role_name === 'Lawyer' && (empty($certificate) || empty($expertise) || empty($location))) {
+    if ($UserType === 'Lawyer' && (empty($certificate) || empty($expertise) || empty($location))) {
       $message = "Lawyers must provide a certificate number, area of expertise, and location.";
     }
   }
