@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'connection.php';
+require 'constant.php';
 
 $username = $_POST['username'];
 $password = $_POST['password'];
@@ -14,9 +14,9 @@ $user = $result->fetch_assoc();
 if ($user && password_verify($password, $user['Password'])) {
     $_SESSION['user'] = $user;
     switch ($user['UserType']) {
-        case 'Super_User': header("Location: super_user_dashboard.php"); break;
-        case 'Administrator': header("Location: admin_dashboard.php"); break;
-        case 'Author': header("Location: author_dashboard.php"); break;
+        case 'Super_User': header("Location: Logic/superUser.php"); break;
+        case 'Administrator': header("Location: Logic/Admin.php"); break;
+        case 'Author': header("Location: Logic/Author.php"); break;
     }
 } else {
     echo "Invalid credentials.";
