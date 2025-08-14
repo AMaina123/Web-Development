@@ -1,20 +1,8 @@
-<?php
-session_start();
-
-if (isset($_GET['logout'])) {
-  session_destroy();
-  header("Location: Homepage.php");
-  exit;
-}
-?>
-<!--  Admin Controls -->
-<div class="role-section">
-  <h3>Admin Controls</h3>
-  <ul>
-  <li><a href="manageUsers.php"> User Management</a></li>
-  <li><a href="systemLogs.php"> System Logs</a></li>
-  <li><a href="lawyerManagement.php"> Lawyer Management</a></li>
-  <li><a href="feedback.php"> User Feedback</a></li>
-
-  </ul>
-</div>
+<?php 
+session_start(); 
+require 'constant.php'; ?>
+<h2>Welcome Super User</h2>
+<a href="update_profile.php">Update My Profile</a><br>
+<a href="manage_users.php">Manage Other Users</a><br>
+<a href="view_articles.php">View Articles</a><br>
+<a href="logout.php">Logout</a>
