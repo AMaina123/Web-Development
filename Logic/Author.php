@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'connection.php';
+require 'constant.php';
 
 if (!isset($_SESSION['user']) || $_SESSION['user']['UserType'] !== 'Author') {
     header("Location: index.php");
@@ -9,7 +9,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['UserType'] !== 'Author') {
 ?>
 
 <h2>Welcome Author</h2>
-<a href="update_profile.php">Update My Profile</a><br>
-<a href="manage_my_articles.php">Manage My Articles</a><br>
-<a href="view_articles.php">View Articles</a><br>
+<a href="updateProfile.php">Update My Profile</a><br>
+<a href="manageMyArticles.php">Manage My Articles</a><br>
+<a href="viewArticles.php">View Articles</a><br>
 <a href="logout.php">Logout</a>
