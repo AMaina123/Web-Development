@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'connection.php';
+require 'constant.php';
 
 if ($_SESSION['user']['UserType'] !== 'Author') {
     header("Location: index.php");

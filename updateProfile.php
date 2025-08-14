@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'connection.php';
+require 'constant.php';
 
 $user = $_SESSION['user'];
 if (!$user) { header("Location: index.php"); exit; }
