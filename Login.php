@@ -26,15 +26,15 @@ if ($username && $password) {
                 header("Location: Logic/Author.php");
                 exit;
             default:
-                header("Location: login.php?error=usertype");
+                header("Location: index.php?error=usertype");
                 exit;
         }
     } else {
-        header("Location: login.php?error=invalid");
+        header("Location: index.php?error=invalid");
         exit;
     }
 } else {
-    header("Location: login.php?error=missing");
+    header("Location: index.php?error=missing");
     exit;
 }
 ?>
