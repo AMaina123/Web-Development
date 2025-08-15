@@ -66,7 +66,7 @@ session_start();
 </head>
 <body>
   <div class="signup-container">
-    <h2>Create Your LegalGuide Account</h2>
+    <h2>Create Your Account</h2>
     <form action="signup.php" method="POST">
       <input type="text" name="username" placeholder="Username" required />
       <input type="email" name="email" placeholder="Email Address" required />
@@ -74,7 +74,7 @@ session_start();
       <input type="password" name="confirm_password" placeholder="Confirm Password" required />
       <button type="submit">Sign Up</button>
     </form>
-    <div class="footer-note">Already have an account? <a href="login.php">Log in</a></div>
+    <div class="footer-note">Already have an account? <a href="index.php">Log in</a></div>
   </div>
 </body>
 </html>
