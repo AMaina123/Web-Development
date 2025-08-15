@@ -32,6 +32,12 @@ session_start();
       color: #2c3e50;
     }
 
+    .error-message {
+      color: red;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
     input[type="text"],
     input[type="password"] {
       width: 100%;
@@ -50,6 +56,7 @@ session_start();
       border-radius: 4px;
       cursor: pointer;
       font-size: 16px;
+      margin-top: 10px;
     }
 
     button:hover {
@@ -66,12 +73,30 @@ session_start();
 <body>
   <div class="login-container">
     <h2>Login</h2>
+
+    <?php
+    if (isset($_GET['error'])) {
+      switch ($_GET['error']) {
+        case 'missing':
+          echo '<div class="error-message">Please enter both username and password.</div>';
+          break;
+        case 'invalid':
+          echo '<div class="error-message">Invalid credentials. Try again.</div>';
+          break;
+        case 'usertype':
+          echo '<div class="error-message">Unknown user type. Contact support.</div>';
+          break;
+      }
+    }
+    ?>
+
     <form action="login.php" method="POST">
       <input type="text" name="username" placeholder="Username" required />
       <input type="password" name="password" placeholder="Password" required />
-      <button type="submit">SignIn</button>
+      <button type="submit">Sign In</button>
       <button type="button" onclick="window.location.href='signup.php'">Sign Up</button>
     </form>
+
     <div class="footer-note">© LegalGuide 2025. All rights reserved.</div>
   </div>
 </body>

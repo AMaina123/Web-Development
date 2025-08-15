@@ -26,12 +26,15 @@ if ($username && $password) {
                 header("Location: Logic/Author.php");
                 exit;
             default:
-                echo "Unknown user type.";
+                header("Location: login.php?error=usertype");
+                exit;
         }
     } else {
-        echo "Invalid credentials.";
+        header("Location: login.php?error=invalid");
+        exit;
     }
 } else {
-    echo "Please enter both username and password.";
+    header("Location: login.php?error=missing");
+    exit;
 }
 ?>
