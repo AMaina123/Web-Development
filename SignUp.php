@@ -5,7 +5,7 @@ session_start();
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>LegalGuide | Sign Up</title>
+  <title>Sign Up</title>
   <style>
     body {
       margin: 0;
