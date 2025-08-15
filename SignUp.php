@@ -5,7 +5,7 @@ session_start();
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>LegalGuide | Login</title>
+  <title>LegalGuide | Sign Up</title>
   <style>
     body {
       margin: 0;
@@ -17,7 +17,7 @@ session_start();
       height: 100vh;
     }
 
-    .login-container {
+    .signup-container {
       background-color: #ffffff;
       padding: 40px;
       border-radius: 8px;
@@ -33,6 +33,7 @@ session_start();
     }
 
     input[type="text"],
+    input[type="email"],
     input[type="password"] {
       width: 100%;
       padding: 12px;
@@ -64,15 +65,16 @@ session_start();
   </style>
 </head>
 <body>
-  <div class="login-container">
-    <h2>Login</h2>
-    <form action="login.php" method="POST">
+  <div class="signup-container">
+    <h2>Create Your LegalGuide Account</h2>
+    <form action="signup.php" method="POST">
       <input type="text" name="username" placeholder="Username" required />
+      <input type="email" name="email" placeholder="Email Address" required />
       <input type="password" name="password" placeholder="Password" required />
-      <button type="submit">SignIn</button>
-      <button type="button" onclick="window.location.href='signup.php'">Sign Up</button>
+      <input type="password" name="confirm_password" placeholder="Confirm Password" required />
+      <button type="submit">Sign Up</button>
     </form>
-    <div class="footer-note">© LegalGuide 2025. All rights reserved.</div>
+    <div class="footer-note">Already have an account? <a href="login.php">Log in</a></div>
   </div>
 </body>
 </html>
