@@ -91,13 +91,15 @@ session_start();
     ?>
 
     <form action="login.php" method="POST">
+        <label>Username</label>
       <input type="text" name="username" placeholder="Username" required />
+        <label>Password</label>
       <input type="password" name="password" placeholder="Password" required />
       <button type="submit">Sign In</button>
       <button type="button" onclick="window.location.href='signup.php'">Sign Up</button>
     </form>
 
-    <div class="footer-note">© LegalGuide 2025. All rights reserved.</div>
+    <div class="footer-note">© Authorship 2025. All rights reserved.</div>
   </div>
 </body>
 </html>

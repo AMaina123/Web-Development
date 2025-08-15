@@ -17,13 +17,13 @@ if ($username && $password) {
 
         switch ($user['UserType']) {
             case 'Super_User':
-                header("Location: Logic/superUser.php");
+                header("Location: superUser.php");
                 exit;
             case 'Administrator':
-                header("Location: Logic/Admin.php");
+                header("Location: Admin.php");
                 exit;
             case 'Author':
-                header("Location: Logic/Author.php");
+                header("Location: Author.php");
                 exit;
             default:
                 header("Location: index.php?error=usertype");

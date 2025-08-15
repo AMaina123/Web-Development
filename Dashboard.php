@@ -1,7 +1,7 @@
 <?php
 //  Start session and include config/logic
 session_start();
-require "webdevdb.php";            // MySQLi connection
+require "constant.php";            // MySQLi connection
 require "dashboardConfig.php";    // Universal dashboard logic
 ?>
 
@@ -43,7 +43,7 @@ require "dashboardConfig.php";    // Universal dashboard logic
       <!-- Render Section Based on Role -->
       <?php
         if ($User_Type === 'user') {
-          include 'Logic/userLogic.php';
+          include 'userLogic.php';
         } elseif ($role === 'lawyer') {
           include 'Logic/lawyerLogic.php';
         } elseif ($role === 'admin') {
