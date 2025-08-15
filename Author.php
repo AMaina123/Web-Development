@@ -67,7 +67,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['UserType'] !== 'Author') {
     <a href="manageMyArticles.php">Manage My Articles</a>
     <a href="viewArticles.php">View Articles</a>
     <a href="index.php?logout=true" style="color: #dc3545;">Logout</a>
-    <div class="footer-note">© LegalGuide 2025. All rights reserved.</div>
+    <div class="footer-note">© Authorship 2025. All rights reserved.</div>
   </div>
 </body>
 </html>  

@@ -73,9 +73,9 @@ $result = $mysqli->query("SELECT * FROM articles WHERE article_display='yes' ORD
         <p><?= nl2br(htmlspecialchars($row['article_full_text'])) ?></p>
       </div>
     <?php endwhile; ?>
-    
 
-    <div class="footer-note">© LegalGuide 2025. All rights reserved.</div>
+
+    <div class="footer-note">© Authorship 2025. All rights reserved.</div>
   </div>
 </body>
 </html>

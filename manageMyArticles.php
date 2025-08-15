@@ -179,7 +179,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   "> Back to Dashboard</a>
 </div>
 
-    <div class="footer-note">© LegalGuide 2025. All rights reserved.</div>
+    <div class="footer-note">© Authorship 2025. All rights reserved.</div>
   </div>
 </body>
 </html>

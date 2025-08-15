@@ -183,7 +183,7 @@ if (isset($_GET['delete'])) {
     font-weight: bold;
     border-radius: 5px;
     transition: background-color 0.2s ease;
-  ">⬅️ Back to Dashboard</a>
+  ">Back to Dashboard</a>
 </div>
   </div>
 </body>

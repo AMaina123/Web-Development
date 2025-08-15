@@ -161,7 +161,7 @@ $result = $mysqli->query("SELECT * FROM users WHERE UserType='Author'");
     transition: background-color 0.2s ease;
   "> Back to Dashboard</a>
 </div>
-    <div class="footer-note">© LegalGuide 2025. Admin access only.</div>
+    <div class="footer-note">© Authorship 2025. Admin access only.</div>
   </div>
 </body>
 </html>

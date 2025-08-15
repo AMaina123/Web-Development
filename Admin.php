@@ -11,7 +11,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['UserType'] !== 'Administrato
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>LegalGuide | Admin Dashboard</title>
+  <title> Admin Dashboard</title>
   <style>
     body {
       margin: 0;

@@ -116,7 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <button type="submit">Update</button>
     </form>
 
-    <div class="footer-note">© LegalGuide 2025. All rights reserved.</div>
+    <div class="footer-note">© Authorship 2025. All rights reserved.</div>
   </div>
 </body>
 </html>
